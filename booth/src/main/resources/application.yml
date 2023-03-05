@@ -1,0 +1,25 @@
+spring:
+  datasource:
+    #数据库驱动完整类名
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: qinjiajun1103
+    url: jdbc:mysql://120.25.152.17:3306/arc_meta?serverTimezone=GMT%2B8
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+      config:
+        import:
+          - nacos:nacos-config-example.properties?refresh=true
+        refresh-enabled: true
+        shared-configs:
+            # 让扩展配置刷新
+            refresh: true
+  application:
+    name: meta-booth
+server:
+  port: 8081
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
